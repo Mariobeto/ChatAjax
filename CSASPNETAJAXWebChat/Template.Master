@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Template.master.cs" Inherits="WebChat.Template" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+     <title>.: Infemov sistema interno :.</title>
+    <link rel="stylesheet" type="text/css" href="Estilos/Estilo.css"/>
+    <link rel="stylesheet" href="../Scripts/themes/ui-lightness/jquery-ui-1.8.21.custom.css" />
+	<script type="text/javascript" src="../Scripts/ui/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../Scripts/ui/jquery-ui-1.8.21.custom.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+  <div class="Top">
+        <div id="divPruebas" runat="server">
+            <asp:Label ID="lblBaseDatos" style="color:blue" runat="server" Text=""></asp:Label>
+        </div>
+    </div>
+    <form id="form1" runat="server">
+    <div>
+       <div id="divMenuNuevo" visible="false" class="account-sidebarMaster" runat="server">​
+
+       <%-- <div id = "divConsultaTicket" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="consultaTicketM.aspx" title="Consulta de Ticket">
+                <img alt="Conslt" src="image/ConsTicktWin.png" title="Consultar Ticket" class="imgDashboard"/>
+                Info               
+            </a>
+            
+        </div>--%>
+        <%--<div id="divRegistraTicket" runat="server" class="divMenuCambCuentaOpciones"  visible="false">
+            <a href="registroTicketM.aspx" title="Registro de Ticket">
+                <img alt="Reg" src="image/RegistrarNuevoTicket.png" title="Registrar nuevo ticket" class="imgDashboard"/>
+                Registro de Ticket          
+            </a>
+        </div>
+         
+        <div id="divAutorizaTicket" runat="server"  class="divMenuCambCuentaOpciones" visible="false">
+            <a href="autorizarTicket.aspx" title="Autorizar Ticket">
+                <img alt="Aut" src="image/AutTicktWin.png" class="imgDashboard"/>
+                Autorizar Ticket
+            </a>
+        </div>
+
+        <div id="divRegistraAcciones" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="registroAcciones.aspx" title="Registro de Acciones">
+                <img alt="RegAcciones" src="image/RegistAccionesWin.png" title="Registrar nuevo ticket" class="imgDashboard"/>
+                 Registro de Acciones          
+            </a>
+        </div>
+         
+        <div id="divAutorizarOAR" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="autorizarOAR.aspx" title="Autorización para enviar Ticket a OAR">
+                <img src="image/AutTicketOARWin.png" title="Autorización para enviar Ticket a OAR" class="imgDashboard"/>
+                Autorización para enviar Ticket a OAR
+             </a>
+        </div>
+
+        <div id="divRegistroOAR" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="oar.aspx" title="Seguimiento OAR">
+                <img src="image/SeguimientoOarWin.png" class="imgDashboard"/>
+                Seguimiento OAR
+            </a>
+        </div>
+        
+        <div id="divRegistroDocumentos" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="registroDocumentos.aspx" title="Registrar Documentos">            
+                <img src="image/RegistrarDocumentosWin.png" class="imgDashboard"/>
+                Registrar Documentos          
+            </a>
+        </div>
+
+        <div id="divLaboratorioPruebas" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="laboratorioPruebas.aspx" title="Laboratorio de Pruebas">
+                <img src="image/LaboratorioDePruebasWin.png" class="imgDashboard"/>              
+                Laboratorio de Pruebas
+             </a>
+        </div>
+
+        <div id="divRegistroUsuarios" runat="server" class="divMenuCambCuentaOpciones" visible="false">
+            <a href="registroUsuario.aspx" title="Panel de usuario">
+                <img src="image/PanelDecontrolWIN.png" class="imgDashboard"/>                
+                Panel de Usuario
+            </a>
+        </div>--%>
+                
+       </div>
+        <img alt="Progress" src="../image/load.gif" id="imgProg"/>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                    <script type="text/javascript" language="javascript">
+                        Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+                        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+
+                        $(function () {
+                            $("#imgProg").hide();
+                            $(".ui-dialog-titlebar").hide();
+                            $("#imgProg").dialog({
+                                height: 100,
+                                width: 115,
+                                modal: true,
+                                resizable: false,
+                                draggable: false,
+                                hide: { effect: 'drop', direction: "down" },
+                                show: { effect: 'drop', direction: "up" },
+                                closeOnEscape: false,
+                                autoOpen: false,
+                                
+                            });
+                        });
+
+                        function BeginRequestHandler(sender, args) {
+                            $(".ui-dialog-titlebar").hide();
+                            $("#imgProg").dialog('open');
+                        }
+                        function EndRequestHandler(sender, args) {
+                            $("#imgProg").dialog('close');
+
+                        }
+                        function ActivateAlertDiv(visstring, elem, msg) {
+
+
+                        }
+                </script>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    
+
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

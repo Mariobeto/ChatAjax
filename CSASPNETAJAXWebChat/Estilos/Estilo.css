@@ -1,0 +1,621 @@
+﻿html
+{
+	margin:0px;
+	padding:0px;
+	width: 100%;
+	height: 100%;
+}
+
+a
+{
+	text-decoration: none;
+    color: #FF6600;
+}
+
+p
+{
+    color: #F60;    
+}
+
+body
+{
+	margin: 0 0 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#303030;
+}
+
+.imagenAdjunto
+{
+	background: url('../image/EnProceso.png') no-repeat center;
+}
+
+.Top
+{
+	border-bottom: thin solid gray;
+	width:100%;
+	height: 50px;
+	position: fixed;
+	float: left;
+	background: #f3f3f3 url('../image/app_icon.png') no-repeat center;
+	top: 0px;
+	left: 0px;
+	text-align: right;
+}
+
+.TopSinFormato
+{
+	margin: 0 auto 0 auto;
+	border: thin solid gray;
+	width:610px;
+	height: 40px;
+	/*position: fixed;*/
+	/*float: left;*/
+	background: #f3f3f3 url('../image/app_icon.png') no-repeat center;
+	/*top: 0px;
+	left: 0px;
+	text-align: right;*/
+}
+
+.BottomDefault
+{
+	margin: 0 auto 0 auto;
+	width:100%;
+	/*height:20px;*/
+	position: fixed;
+	bottom: 0%;
+	background-color:#f3f3f3;
+	border-top-color: gray;
+	border-top-style: solid;
+	border-top-width:thin;	
+}
+
+.MenuBottomDefault
+{
+	margin: 0 auto 0 auto; 
+	/*height:100%;*/ 
+	width:240px; 
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 10px;
+	font-weight:bold;
+	color: #FF6600;
+}
+
+.MenuBottomSistema {
+margin: 0 auto 0 auto;
+width: 1024px;
+padding-top: 4px;
+padding-bottom: 4px;
+font-size: 12px;
+font-weight: bold;
+color: #F60;
+}
+
+.MenuInicial
+{
+	margin:0 auto 0 auto;
+	margin-top: 70px;
+	width: 1000px;
+	text-align: center;
+}
+
+.ConsultaTicketSistema
+{
+	/* position: absolute; 
+	left:32%;
+	margin-left: -130PX; */
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/ConsultarTicket.png') no-repeat;
+}
+
+.ConsultaTicketSistema a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.ConsultaTicketSistema a:hover
+{
+	background: url('../image/ConsultarTicket_A.png') no-repeat;
+}
+
+.ConsultaTicket
+{
+	 position: absolute; 
+	left:50%;
+	margin-left: -130PX;
+	width: 250px;
+	height:100px;
+	/*background: url('../image/menu_tck_new_self.png') no-repeat center; */
+	background: url('../image/ConsultarTicket.png') no-repeat;
+}
+
+.ConsultaTicket a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.ConsultaTicket a:hover
+{
+	background: url('../image/ConsultarTicket_A.png') no-repeat;
+}
+
+.RegistraTicketSistema
+{
+	/* position: absolute;  
+	left:50%;
+	margin-left: -130PX; */
+	float:left;
+	width: 250px;
+	height:100px;
+	/*background: url('../image/menu_tck_new_self.png') no-repeat center; */
+	background: url('../image/RegistrarTicket.png') no-repeat;
+}
+
+.RegistraTicketSistema a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.RegistraTicketSistema a:hover
+{
+	background: url('../image/RegistrarTicket_A.png') no-repeat;
+}
+
+.RegistraTicket
+{
+	position: absolute; 
+	top: 190px;
+	left:50%;
+	margin-left: -130PX;
+	width: 250px;
+	height:100px;
+	/*background: url('../image/menu_tck_new_self.png') no-repeat center; */
+	background: url('../image/RegistrarTicket.png') no-repeat;
+}
+
+.menuUsuario 
+{
+	position: relative; 
+	color: #555;
+	min-height: 450px;	
+}
+
+
+
+
+.MenuCambCuentaOpciones a:hoover
+{
+	border-top: 1px solid #C9C9C9;
+	background: #FCFCFC;
+	color: #333;
+	text-decoration: underline;
+}
+
+.RegistraTicket a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.RegistraTicket a:hover
+{
+	background: url('../image/RegistrarTicket_A.png') no-repeat;
+}
+
+.AutorizaTicketSistema
+{
+	/* position: absolute;  
+	left:68%;
+	margin-left: -130PX; */
+	float: left;
+	width: 250px;
+	height:100px;
+	/*background: url('../image/menu_tck_new_self.png') no-repeat center; */
+	background: url('../image/AutorizarTicket.png') no-repeat;
+}
+
+.AutorizaTicketSistema a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.AutorizaTicketSistema a:hover
+{
+	background: url('../image/AutorizarTicket_A.png') no-repeat;
+}
+
+.RegistrarAccionesSistema
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/RegistrarAcciones.png') no-repeat;
+}
+
+.RegistrarAccionesSistema a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.RegistrarAccionesSistema a:hover
+{
+	background: url('../image/RegistrarAcciones_A.png') no-repeat;
+}
+
+.RegistrarUsuario
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/ConfiguracionUsuario.png') no-repeat;
+}
+
+.RegistrarUsuario a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.RegistrarUsuario a:hover
+{
+	background: url('../image/ConfiguracionUsuario-a.png') no-repeat;
+}
+
+.EditarTicket
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/EditarTicket.png') no-repeat;
+}
+
+.EditarTicket a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.EditarTicket a:hover
+{
+	background: url('../image/EditarTicket-a.png') no-repeat;
+}
+
+
+.btnSeguimientoOAR
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/btnSeguimientoOAR.png') no-repeat;
+}
+
+.btnSeguimientoOAR a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.btnSeguimientoOAR a:hover
+{
+	background: url('../image/btnSeguimientoOAR_A.png') no-repeat;
+}
+
+.AutorizaOAR
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/AutorizarOAR.png') no-repeat;
+	/*background: url('../image/AutorizarTicket.png') no-repeat;*/
+}
+
+.AutorizaOAR a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.AutorizaOAR a:hover
+{
+	background: url('../image/AutorizarOAR_A.png') no-repeat;
+    /*background: url('../image/AutorizarTicket_A.png') no-repeat;*/
+}
+
+.RegistroDocumentos
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/RegistrarDocumentos.png') no-repeat;
+}
+
+.RegistroDocumentos a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.RegistroDocumentos a:hover
+{
+	background: url('../image/RegistrarDocumentos_A.png') no-repeat;
+}
+
+.LaboratorioPruebas
+{
+	float: left;
+	width: 250px;
+	height:100px;
+	background: url('../image/LabPruebas.png') no-repeat;
+}
+
+.LaboratorioPruebas a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.LaboratorioPruebas a:hover
+{
+	background: url('../image/LabPruebas_A.png') no-repeat;
+}
+
+
+.ContenedorPrincipal
+{
+	margin: 0 auto 0 auto;
+	width: 1000px;
+	height: 100%;
+
+}
+
+.ContenedorPrincipalDashBoard
+{
+	margin-left:250px;
+	width: 1000px;
+	height: 100%;
+
+}
+
+.DatosUsuario
+{
+	margin: 0 auto 0 auto;
+	margin-top: 5px;
+	background: #f6f6f6;
+	width: 700px;
+	border: thin solid gray;
+}
+
+.CambiaContraseña
+{
+	margin: 0 auto 0 auto;
+	margin-top: 5px;
+	background: #f6f6f6;
+	width: 700px;
+	border: thin solid gray;
+}
+
+.Tabla
+{
+	margin: 0 auto 0 auto;	
+}
+
+
+.colLabels
+{
+	width: 165px;
+	text-align:right;
+}
+
+.colValues
+{
+    text-align:left;
+}
+
+.Password
+{
+	margin: 0 auto 0 auto;
+	margin-top: 100px;
+	width:400px;
+	height: 240px;
+	border: 7px solid #d9d9d9;
+	background-color: #f9f9f9;
+}
+
+.ImagenLogin
+{
+	width: 100%;
+	height: 70px;
+	font-weight: normal;
+}
+
+.DatosLogin
+{
+	margin: 0 auto 0 auto;
+	font-size:12pt;
+	color: #464646;
+	text-align:right
+}
+
+.BotonLogin
+{
+	margin: 0 auto 0 auto;
+	width:170px;
+	height: 55px;
+}
+
+.ResumenValidacion
+{
+	margin: 0 auto 0 auto;
+	margin-top: -10px;
+	width:411px;
+	background-color:#f3f3f3;
+	border-width: thin;
+	border-style: solid;
+	border-color: Red;
+	color: Red;
+}
+
+.ResumenValidacionGenerica
+{
+	width:500px;
+	color: Red;
+	float: left;
+}
+
+.tResCT
+{
+	border: thin solid #c8c4c4;
+	margin-top:-3px;
+	margin-left:1px;
+}
+
+.ColEtiquetas
+{
+	width:190px;
+	height:25px;
+	border-right: thin solid #F0F0F0;
+	background-color:#F0F0F0;
+}
+
+.ColDatos
+{
+	width:794px;
+	height:25px;
+	
+}
+
+.centrarLabel
+{
+	margin:0 auto 0 auto;
+}
+
+.boton
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 2px;
+    font-size:10px;
+    font-family:Verdana,Helvetica;
+    font-weight:bold;
+    color:white;
+    background:#638cb5;
+    /*width:100px;*/
+    }
+ /*Registrar usuario*/
+.account-sidebar {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    bottom: 0;
+    width: 200px;
+    border-right: 1px solid #DEDEDE;
+}
+
+.account-sidebarMaster {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    width: 200px;
+    border-right: 1px solid #DEDEDE;
+}
+
+.divMenuCambCuentaOpciones
+{
+	display: block;
+    border-top: 1px solid transparent;
+    padding: 1px 5px 7px 46px;
+    text-decoration: none;
+    margin-top:5px;
+    
+}
+
+.divMenuCambCuentaOpciones:hover
+{
+    background-color: #F2F5FA;
+    padding: 1px 5px 7px 46px;
+}
+
+.divMenuCamCuentaSelected
+{
+    background-color: #D8DFEA;
+    padding: 1px 5px 7px 46px;
+    border: 1px solid #D8DFEA;
+    margin-top:5px;
+}
+
+.divLinkMenuCambCuent{
+	width:200px; 
+	margin: 0 auto 0 auto; 
+	font-weight:bold; 
+	margin-top:5px;
+}
+ /*Dashboard*/
+ 
+ .dashboard-sidebar {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    bottom: 0;
+    width: 200px;
+    border-right: 1px solid #DEDEDE;
+}
+
+/*DashBoard master*/
+.imgDashboard
+{
+    width:20px;
+    height:20px;
+}
+
+.lblStatusError
+{
+    font-weight:bold;
+    color:#E60000;
+    font-size:14px;   
+}
+
+.lblStatusInfo
+{
+   font-weight:bold; 
+   color:#F60;
+   font-size:14px;
+}
+ 
+.Click
+{
+    cursor:pointer;    
+}
+ 
+.Edit
+{
+    background-image: url(../image/Edit.png);
+    background-repeat:no-repeat;
+    background-position:0px -15px;
+}
+
+.Edit:hover
+{
+    background-image: url(../image/Edit.png);
+    background-repeat:no-repeat;
+    background-position:0px -31px;
+}
