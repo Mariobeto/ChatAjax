@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SessionDB" Class="SessionDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\SessionDB.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SessionDBConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Chat" Class="SessionDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=Mario-pc;Initial Catalog=Chat;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ChatConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblChatRoom" Member="tblChatRooms">
     <Type Name="tblChatRoom">
       <Column Name="ChatRoomID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -9,18 +9,6 @@
       <Column Name="MaxUserNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IsLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="tblChatRoom_tblTalker" Member="tblTalkers" ThisKey="ChatRoomID" OtherKey="ChatRoomID" Type="tblTalker" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tblTalker" Member="tblTalkers">
-    <Type Name="tblTalker">
-      <Column Name="TalkerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ChatRoomID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="CheckInTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CheckOutTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="true" />
-      <Association Name="tblTalker_tblMessagePool" Member="tblMessagePools" ThisKey="TalkerID" OtherKey="talkerID" Type="tblMessagePool" />
-      <Association Name="tblChatRoom_tblTalker" Member="tblChatRoom" ThisKey="ChatRoomID" OtherKey="ChatRoomID" Type="tblChatRoom" IsForeignKey="true" />
-      <Association Name="tblSession_tblTalker" Member="tblSession" ThisKey="SessionID" OtherKey="UID" Type="tblSession" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tblSession" Member="tblSessions">
@@ -39,6 +27,18 @@
       <Column Name="SendTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="talkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="tblTalker_tblMessagePool" Member="tblTalker" ThisKey="talkerID" OtherKey="TalkerID" Type="tblTalker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTalker" Member="tblTalkers">
+    <Type Name="tblTalker">
+      <Column Name="TalkerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ChatRoomID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CheckInTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CheckOutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblTalker_tblMessagePool" Member="tblMessagePools" ThisKey="TalkerID" OtherKey="talkerID" Type="tblMessagePool" />
+      <Association Name="tblChatRoom_tblTalker" Member="tblChatRoom" ThisKey="ChatRoomID" OtherKey="ChatRoomID" Type="tblChatRoom" IsForeignKey="true" />
+      <Association Name="tblSession_tblTalker" Member="tblSession" ThisKey="SessionID" OtherKey="UID" Type="tblSession" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

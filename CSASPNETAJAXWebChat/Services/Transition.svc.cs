@@ -169,9 +169,12 @@ namespace WebChat.Services
                     ChatManager.RecieveMessage(
                         ChatManager.GetChatRoom(roomid));
 
-                foreach (tblMessagePool msg in messageList)
+                if (messageList != null)
                 {
-                    result.Add(new Message(msg, HttpContext.Current));
+                    foreach (tblMessagePool msg in messageList)
+                    {
+                        result.Add(new Message(msg, HttpContext.Current));
+                    }
                 }
             }
             return result;
