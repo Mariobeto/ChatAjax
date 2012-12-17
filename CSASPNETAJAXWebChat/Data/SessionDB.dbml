@@ -11,15 +11,6 @@
       <Association Name="tblChatRoom_tblTalker" Member="tblTalkers" ThisKey="ChatRoomID" OtherKey="ChatRoomID" Type="tblTalker" />
     </Type>
   </Table>
-  <Table Name="dbo.tblSession" Member="tblSessions">
-    <Type Name="tblSession">
-      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SessionID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UserAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="tblSession_tblTalker" Member="tblTalkers" ThisKey="UID" OtherKey="SessionID" Type="tblTalker" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblMessagePool" Member="tblMessagePools">
     <Type Name="tblMessagePool">
       <Column Name="messageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -38,7 +29,17 @@
       <Column Name="CheckOutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="tblTalker_tblMessagePool" Member="tblMessagePools" ThisKey="TalkerID" OtherKey="talkerID" Type="tblMessagePool" />
       <Association Name="tblChatRoom_tblTalker" Member="tblChatRoom" ThisKey="ChatRoomID" OtherKey="ChatRoomID" Type="tblChatRoom" IsForeignKey="true" />
-      <Association Name="tblSession_tblTalker" Member="tblSession" ThisKey="SessionID" OtherKey="UID" Type="tblSession" IsForeignKey="true" />
+      <Association Name="tblSession_tblTalker" Member="tblSession" ThisKey="SessionID" OtherKey="UID" Type="tblSession" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSession" Member="tblSessions">
+    <Type Name="tblSession">
+      <Column Name="UID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblSession_tblTalker" Member="tblTalkers" ThisKey="UID" OtherKey="SessionID" Type="tblTalker" />
     </Type>
   </Table>
 </Database>

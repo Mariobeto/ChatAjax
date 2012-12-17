@@ -7,6 +7,7 @@
      <title>.: Infemov sistema interno :.</title>
     <link rel="stylesheet" type="text/css" href="Estilos/Estilo.css"/>
     <link rel="stylesheet" href="../Scripts/themes/ui-lightness/jquery-ui-1.8.21.custom.css" />
+
 	<script type="text/javascript" src="../Scripts/ui/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../Scripts/ui/jquery-ui-1.8.21.custom.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -86,8 +87,14 @@
         </div>--%>
                 
        </div>
-        <img alt="Progress" src="../image/load.gif" id="imgProg"/>
+        <div id="DivMessage" style="display: none;">
+            <img alt="Progress" src="../image/load.gif" id="imgProg"/>
+        </div>
+        
         <asp:ScriptManager ID="ScriptManager1" runat="server">
+             <Services>
+                <asp:ServiceReference Path="~/Services/Transition.svc" />
+            </Services>
         </asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>

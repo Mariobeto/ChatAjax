@@ -1,22 +1,4 @@
-﻿/****************************** Module Header ******************************\
-* Module Name:    ChatManager.cs
-* Project:        CSASPNETAJAXWebChat
-* Copyright (c) Microsoft Corporation
-*
-* The project illustrates how to design a simple AJAX web chat application. 
-* We use jQuery, ASP.NET AJAX at client side and Linq to SQL at server side.
-* In this sample, we could create a chat room and invite someone
-* else to join in the room and start to chat.
-* 
-* In this file, we use Linq to control the data in the database.
-* 
-* This source is subject to the Microsoft Public License.
-* See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL.
-* All other rights reserved.
-*
-\*****************************************************************************/
-
-using System;
+﻿using System;
 using System.Web;
 using System.Linq;
 using System.Collections.Generic;
@@ -96,6 +78,7 @@ namespace WebChat.Logic
             db.SubmitChanges();
             return room.ChatRoomID;
         }
+
 
         public static tblChatRoom GetChatRoom(Guid roomid)
         {
@@ -206,8 +189,7 @@ namespace WebChat.Logic
         public static tblSession GetSession(HttpContext context)
         {
             SessionDBDataContext db = new SessionDBDataContext();
-            var session = db.tblSessions.FirstOrDefault(
-                s => s.SessionID == context.Session.SessionID);
+            var session = db.tblSessions.FirstOrDefault(s => s.SessionID == context.Session.SessionID);
             return session;
         }
 
@@ -237,6 +219,15 @@ namespace WebChat.Logic
             {
                 return false;
             }
+        }
+
+        
+        public static List<tblSession> UserLogin(string user,string password)
+        {
+            SessionDBDataContext db = new SessionDBDataContext();
+            return (from usr in db.tblSessions
+                    where usr.UserAlias == user && usr.UserPassword.Equals(password)
+                    select usr).ToList();
         }
 
         #endregion

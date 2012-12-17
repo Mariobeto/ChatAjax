@@ -57,6 +57,13 @@ namespace WebChat.Services
         }
 
         [OperationContract]
+        public void UserLogin(string useralias,string password)
+        {
+            ChatManager.UserLogin(
+                useralias, password);
+        }
+
+        [OperationContract]
         public ChatRoom JoinChatRoom(string roomid, string alias)
         {
             Guid rid;

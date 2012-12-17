@@ -33,15 +33,15 @@ namespace WebChat.Data
     partial void InserttblChatRoom(tblChatRoom instance);
     partial void UpdatetblChatRoom(tblChatRoom instance);
     partial void DeletetblChatRoom(tblChatRoom instance);
-    partial void InserttblSession(tblSession instance);
-    partial void UpdatetblSession(tblSession instance);
-    partial void DeletetblSession(tblSession instance);
     partial void InserttblMessagePool(tblMessagePool instance);
     partial void UpdatetblMessagePool(tblMessagePool instance);
     partial void DeletetblMessagePool(tblMessagePool instance);
     partial void InserttblTalker(tblTalker instance);
     partial void UpdatetblTalker(tblTalker instance);
     partial void DeletetblTalker(tblTalker instance);
+    partial void InserttblSession(tblSession instance);
+    partial void UpdatetblSession(tblSession instance);
+    partial void DeletetblSession(tblSession instance);
     #endregion
 		
 		public SessionDBDataContext() : 
@@ -82,14 +82,6 @@ namespace WebChat.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<tblSession> tblSessions
-		{
-			get
-			{
-				return this.GetTable<tblSession>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblMessagePool> tblMessagePools
 		{
 			get
@@ -103,6 +95,14 @@ namespace WebChat.Data
 			get
 			{
 				return this.GetTable<tblTalker>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblSession> tblSessions
+		{
+			get
+			{
+				return this.GetTable<tblSession>();
 			}
 		}
 	}
@@ -314,168 +314,6 @@ namespace WebChat.Data
 		{
 			this.SendPropertyChanging();
 			entity.tblChatRoom = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSession")]
-	public partial class tblSession : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UID;
-		
-		private string _SessionID;
-		
-		private string _IP;
-		
-		private string _UserAlias;
-		
-		private EntitySet<tblTalker> _tblTalkers;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUIDChanging(int value);
-    partial void OnUIDChanged();
-    partial void OnSessionIDChanging(string value);
-    partial void OnSessionIDChanged();
-    partial void OnIPChanging(string value);
-    partial void OnIPChanged();
-    partial void OnUserAliasChanging(string value);
-    partial void OnUserAliasChanged();
-    #endregion
-		
-		public tblSession()
-		{
-			this._tblTalkers = new EntitySet<tblTalker>(new Action<tblTalker>(this.attach_tblTalkers), new Action<tblTalker>(this.detach_tblTalkers));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UID
-		{
-			get
-			{
-				return this._UID;
-			}
-			set
-			{
-				if ((this._UID != value))
-				{
-					this.OnUIDChanging(value);
-					this.SendPropertyChanging();
-					this._UID = value;
-					this.SendPropertyChanged("UID");
-					this.OnUIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SessionID
-		{
-			get
-			{
-				return this._SessionID;
-			}
-			set
-			{
-				if ((this._SessionID != value))
-				{
-					this.OnSessionIDChanging(value);
-					this.SendPropertyChanging();
-					this._SessionID = value;
-					this.SendPropertyChanged("SessionID");
-					this.OnSessionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string IP
-		{
-			get
-			{
-				return this._IP;
-			}
-			set
-			{
-				if ((this._IP != value))
-				{
-					this.OnIPChanging(value);
-					this.SendPropertyChanging();
-					this._IP = value;
-					this.SendPropertyChanged("IP");
-					this.OnIPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserAlias", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string UserAlias
-		{
-			get
-			{
-				return this._UserAlias;
-			}
-			set
-			{
-				if ((this._UserAlias != value))
-				{
-					this.OnUserAliasChanging(value);
-					this.SendPropertyChanging();
-					this._UserAlias = value;
-					this.SendPropertyChanged("UserAlias");
-					this.OnUserAliasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSession_tblTalker", Storage="_tblTalkers", ThisKey="UID", OtherKey="SessionID")]
-		public EntitySet<tblTalker> tblTalkers
-		{
-			get
-			{
-				return this._tblTalkers;
-			}
-			set
-			{
-				this._tblTalkers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tblTalkers(tblTalker entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSession = this;
-		}
-		
-		private void detach_tblTalkers(tblTalker entity)
-		{
-			this.SendPropertyChanging();
-			entity.tblSession = null;
 		}
 	}
 	
@@ -855,7 +693,7 @@ namespace WebChat.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSession_tblTalker", Storage="_tblSession", ThisKey="SessionID", OtherKey="UID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSession_tblTalker", Storage="_tblSession", ThisKey="SessionID", OtherKey="UID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public tblSession tblSession
 		{
 			get
@@ -919,6 +757,192 @@ namespace WebChat.Data
 		{
 			this.SendPropertyChanging();
 			entity.tblTalker = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblSession")]
+	public partial class tblSession : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UID;
+		
+		private string _SessionID;
+		
+		private string _IP;
+		
+		private string _UserAlias;
+		
+		private string _UserPassword;
+		
+		private EntitySet<tblTalker> _tblTalkers;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUIDChanging(int value);
+    partial void OnUIDChanged();
+    partial void OnSessionIDChanging(string value);
+    partial void OnSessionIDChanged();
+    partial void OnIPChanging(string value);
+    partial void OnIPChanged();
+    partial void OnUserAliasChanging(string value);
+    partial void OnUserAliasChanged();
+    partial void OnUserPasswordChanging(string value);
+    partial void OnUserPasswordChanged();
+    #endregion
+		
+		public tblSession()
+		{
+			this._tblTalkers = new EntitySet<tblTalker>(new Action<tblTalker>(this.attach_tblTalkers), new Action<tblTalker>(this.detach_tblTalkers));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UID
+		{
+			get
+			{
+				return this._UID;
+			}
+			set
+			{
+				if ((this._UID != value))
+				{
+					this.OnUIDChanging(value);
+					this.SendPropertyChanging();
+					this._UID = value;
+					this.SendPropertyChanged("UID");
+					this.OnUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SessionID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SessionID
+		{
+			get
+			{
+				return this._SessionID;
+			}
+			set
+			{
+				if ((this._SessionID != value))
+				{
+					this.OnSessionIDChanging(value);
+					this.SendPropertyChanging();
+					this._SessionID = value;
+					this.SendPropertyChanged("SessionID");
+					this.OnSessionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IP
+		{
+			get
+			{
+				return this._IP;
+			}
+			set
+			{
+				if ((this._IP != value))
+				{
+					this.OnIPChanging(value);
+					this.SendPropertyChanging();
+					this._IP = value;
+					this.SendPropertyChanged("IP");
+					this.OnIPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserAlias", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UserAlias
+		{
+			get
+			{
+				return this._UserAlias;
+			}
+			set
+			{
+				if ((this._UserAlias != value))
+				{
+					this.OnUserAliasChanging(value);
+					this.SendPropertyChanging();
+					this._UserAlias = value;
+					this.SendPropertyChanged("UserAlias");
+					this.OnUserAliasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="NVarChar(50)")]
+		public string UserPassword
+		{
+			get
+			{
+				return this._UserPassword;
+			}
+			set
+			{
+				if ((this._UserPassword != value))
+				{
+					this.OnUserPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._UserPassword = value;
+					this.SendPropertyChanged("UserPassword");
+					this.OnUserPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tblSession_tblTalker", Storage="_tblTalkers", ThisKey="UID", OtherKey="SessionID")]
+		public EntitySet<tblTalker> tblTalkers
+		{
+			get
+			{
+				return this._tblTalkers;
+			}
+			set
+			{
+				this._tblTalkers.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tblTalkers(tblTalker entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSession = this;
+		}
+		
+		private void detach_tblTalkers(tblTalker entity)
+		{
+			this.SendPropertyChanging();
+			entity.tblSession = null;
 		}
 	}
 }

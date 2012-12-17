@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="WebChat.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/Login.js"></script>
+
+    <link rel="Stylesheet" type="text/css" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/themes/dark-hive/jquery-ui.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="Password">
@@ -26,7 +31,7 @@
                 </table>
                 <br />
                 <div class="BotonLogin">
-                    <asp:Button ID="Button1" runat="server" Text="Aceptar" />
+                    <asp:Button ID="Button1" runat="server" Text="Aceptar" OnClientClick="fnLoginChatRoom();return false;"/>
                 </div>
             </div>
         </div>

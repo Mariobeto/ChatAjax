@@ -44,8 +44,8 @@
         <fieldset>
             <legend>Control Panel</legend>
             <asp:Panel runat="server" ID="PnlControlPanel" Style="padding: 10px;">
-                <asp:Label ID="lblAlias" runat="server" Text="your alias:"></asp:Label><asp:TextBox
-                    ID="txtAlias" runat="server" Width="80px"></asp:TextBox>
+                <asp:Label ID="lblAlias" runat="server" Text="your alias:"></asp:Label>
+                <asp:TextBox ID="txtAlias" runat="server" Width="80px"></asp:TextBox>
                 <asp:Button ID="btnShowChatRoomForm" runat="server" OnClientClick="fnShowChatRoomForm();return false;"
                     Text="Create Chat Room" />
             </asp:Panel>
