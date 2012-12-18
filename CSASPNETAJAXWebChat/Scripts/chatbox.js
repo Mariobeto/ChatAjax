@@ -1,23 +1,4 @@
-﻿/****************************** Module Header ******************************\
-* Module Name:    chatbox.js
-* Project:        CSASPNETAJAXWebChat
-* Copyright (c) Microsoft Corporation
-*
-* The project illustrates how to design a simple AJAX web chat application. 
-* We use jQuery, ASP.NET AJAX at client side and Linq to SQL at server side.
-* In this sample, we could create a chat room and invite someone
-* else to join in the room and start to chat.
-* 
-* In this file, we define some JavaScript function to open a popup window
-* which is used to load a chat room.
-* 
-* This source is subject to the Microsoft Public License.
-* See http://www.microsoft.com/opensource/licenses.mspx#Ms-PL.
-* All other rights reserved.
-*
-\*****************************************************************************/
-
-Type.registerNamespace('WebChat');
+﻿Type.registerNamespace('WebChat');
 WebChat.ChatBox = function () {
     WebChat.ChatBox.initializeBase(this);
     this._title = "";

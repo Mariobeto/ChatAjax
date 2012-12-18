@@ -57,10 +57,13 @@ namespace WebChat.Services
         }
 
         [OperationContract]
-        public void UserLogin(string useralias,string password)
+        public void UserLogin(string user,string password)
         {
-            ChatManager.UserLogin(
-                useralias, password);
+            var Usr = ChatManager.UserLogin(user, password);
+            if (Usr.Count > 0)
+            { 
+                
+            }
         }
 
         [OperationContract]

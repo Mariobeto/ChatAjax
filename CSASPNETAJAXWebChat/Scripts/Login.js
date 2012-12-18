@@ -1,13 +1,11 @@
 ﻿function fnLoginChatRoom() {
 
     ShowMessageBox("Iniciando sesion...", "Iniciando sesion...");
-
-    csaspnetajaxwebchat.transition.UserLogin(
-                $("#txtUsuario").val(),
-                $("#txtPWD").val(),
-                fnLoginChatRoomOnSuccessCallBack
-                );
-
+    var Valor = $('#<%=txtUsuario.ClientID%>').val();
+    //    csaspnetajaxwebchat.transition.UserLogin("mario82","123",
+    //                fnLoginChatRoomOnSuccessCallBack,
+    //                ajaxErrorCallBack
+    //                );
 }
 
 function ShowMessageBox(Title, Message) {
@@ -15,10 +13,14 @@ function ShowMessageBox(Title, Message) {
     $("#DivMessage").dialog({ modal: true, title: Title });
 }
 
-function fnLoginChatRoomOnSuccessCallBack(args) {
+function fnLoginChatRoomOnSuccessCallBack() {
     CloseMessageBox();
 }
 
 function CloseMessageBox() {
     $("#DivMessage").dialog('close');
+}
+
+function ajaxErrorCallBack(args) {
+    $("#DivMessage").dialog("close");
 }

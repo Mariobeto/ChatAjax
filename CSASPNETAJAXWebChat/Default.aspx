@@ -11,7 +11,6 @@
 
     <link rel="Stylesheet" type="text/css" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/themes/dark-hive/jquery-ui.css" />
 
-
     <script type="text/javascript">
         function pageLoad(sender, e) {
             // Get the room list when page loaded.
@@ -25,7 +24,6 @@
             font-size: 12px;
         }
     </style>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -40,15 +38,14 @@
             </Scripts>
         </asp:ScriptManager>
 
-
         <fieldset>
             <legend>Control Panel</legend>
-            <asp:Panel runat="server" ID="PnlControlPanel" Style="padding: 10px;">
+           <%-- <asp:Panel runat="server" ID="PnlControlPanel" Style="padding: 10px;">--%>
                 <asp:Label ID="lblAlias" runat="server" Text="your alias:"></asp:Label>
                 <asp:TextBox ID="txtAlias" runat="server" Width="80px"></asp:TextBox>
                 <asp:Button ID="btnShowChatRoomForm" runat="server" OnClientClick="fnShowChatRoomForm();return false;"
                     Text="Create Chat Room" />
-            </asp:Panel>
+           <%-- </asp:Panel>--%>
         </fieldset>
         <fieldset>
             <legend>Chat Room List</legend>

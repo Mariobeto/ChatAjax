@@ -2,9 +2,37 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="scripts/Login.js"></script>
 
     <link rel="Stylesheet" type="text/css" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/themes/dark-hive/jquery-ui.css" />
+    <script type="text/javascript">
+        function fnLoginChatRoom() {
+
+            ShowMessageBox("Iniciando sesion...", "Iniciando sesion...");
+            csaspnetajaxwebchat.transition.UserLogin($('#<%=txtUsuario.ClientID%>').val(), $('#<%=txtPWD.ClientID%>').val(),
+                            fnLoginChatRoomOnSuccessCallBack,
+                            ajaxErrorCallBack
+                            );
+        }
+
+        function ShowMessageBox(Title, Message) {
+            $("#DivMessage").html(Message);
+            $("#DivMessage").dialog({ modal: true, title: Title });
+        }
+
+        function fnLoginChatRoomOnSuccessCallBack() {
+            CloseMessageBox();
+        }
+
+        function CloseMessageBox() {
+            $("#DivMessage").dialog('close');
+        }
+
+        function ajaxErrorCallBack(args) {
+            $("#DivMessage").dialog("close");
+        }
+
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="Password">
@@ -38,6 +66,5 @@
         <br />
         <asp:CustomValidator ID="cvUsuario" runat="server" ErrorMessage="CustomValidator" Display="None" ></asp:CustomValidator>
         <asp:ValidationSummary ID="vsResumen" CssClass="ResumenValidacion" runat="server" />
-     </ContentTemplate>
-    </asp:UpdatePanel>
+
 </asp:Content>

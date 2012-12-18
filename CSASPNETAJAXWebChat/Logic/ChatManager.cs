@@ -228,6 +228,7 @@ namespace WebChat.Logic
             return (from usr in db.tblSessions
                     where usr.UserAlias == user && usr.UserPassword.Equals(password)
                     select usr).ToList();
+          
         }
 
         #endregion
